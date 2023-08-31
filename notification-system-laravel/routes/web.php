@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NotificationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/amogos', function () {
+    return "amogomogos";
+});
+
+Route::get('schedule_notifications/csv', [NotificationController::class, 'store_csv']);
+
+Route::get('export_excel', [NotificationController::class, 'export_excel']);
+Route::post('import_excel', [NotificationController::class, 'import_excel']);
